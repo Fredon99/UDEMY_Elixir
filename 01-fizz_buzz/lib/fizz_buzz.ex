@@ -1,5 +1,4 @@
 defmodule FizzBuzz do
-
   # primeira versao
   # def build(file_name) do
   #   case File.read(file_name) do
@@ -28,7 +27,7 @@ defmodule FizzBuzz do
     result =
       result
       |> String.split(",")
-      |> Enum.map(fn (element) -> convert_and_evaluate_numbers(element) end)
+      |> Enum.map(fn element -> convert_and_evaluate_numbers(element) end)
 
     {:ok, result}
     # outra maneira - sem criar func anonima
@@ -50,5 +49,4 @@ defmodule FizzBuzz do
   defp evaluate_numbers(number) when rem(number, 3) == 0, do: :fizz
   defp evaluate_numbers(number) when rem(number, 5) == 0, do: :buzz
   defp evaluate_numbers(number), do: number
-
 end
