@@ -1,18 +1,18 @@
-defmodule TestBankWeb.Router do
-  use TestBankWeb, :router
+defmodule ExamplePhoenixWeb.Router do
+  use ExamplePhoenixWeb, :router
 
   pipeline :api do
     plug :accepts, ["json"]
   end
 
-  scope "/api", TestBankWeb do
+  scope "/api", ExamplePhoenixWeb do
     pipe_through :api
 
     get "/", WelcomeController, :index
   end
 
   # Enable LiveDashboard in development
-  if Application.compile_env(:test_bank, :dev_routes) do
+  if Application.compile_env(:example_phoenix, :dev_routes) do
     # If you want to use the LiveDashboard in production, you should put
     # it behind authentication and allow only admins to access it.
     # If your application does not have an admins-only section yet,
@@ -23,7 +23,7 @@ defmodule TestBankWeb.Router do
     scope "/dev" do
       pipe_through [:fetch_session, :protect_from_forgery]
 
-      live_dashboard "/dashboard", metrics: TestBankWeb.Telemetry
+      live_dashboard "/dashboard", metrics: ExamplePhoenixWeb.Telemetry
     end
   end
 end
