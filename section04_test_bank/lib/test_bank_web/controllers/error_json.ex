@@ -21,10 +21,11 @@ defmodule TestBankWeb.ErrorJSON do
   end
 
   def error(%{status: :not_found}) do
-    %{
-      status: :not_found,
-      message: "User not found"
-    }
+    %{status: :not_found, message: "Resource not found"}
+  end
+
+  def error(%{status: :bad_request}) do
+    %{status: :bad_request, message: "Invalid parameters"}
   end
 
   def error(%{changeset: changeset}) do

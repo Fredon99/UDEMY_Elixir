@@ -49,7 +49,9 @@ defmodule TestBank.MixProject do
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.2.0"},
       {:bandit, "~> 1.5"},
-      {:argon2_elixir, "~> 4.0"}
+      {:argon2_elixir, "~> 4.0"},
+      {:tesla, "~> 1.15"},
+      {:bypass, "~> 2.1", only: :test}
     ]
   end
 
