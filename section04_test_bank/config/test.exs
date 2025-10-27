@@ -8,7 +8,7 @@ import Config
 config :test_bank, TestBank.Repo,
   username: "postgres",
   password: "postgres",
-  hostname: "192.168.56.1",
+  hostname: "localhost",
   database: "test_bank_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: System.schedulers_online() * 2

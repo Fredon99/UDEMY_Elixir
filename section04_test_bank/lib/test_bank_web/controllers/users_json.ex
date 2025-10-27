@@ -24,4 +24,11 @@ defmodule TestBankWeb.UsersJSON do
       email: user.email
     }
   end
+
+  def login(%{token: token}) do
+    %{
+      message: "User successfully authenticated",
+      bearer: token
+    }
+  end
 end

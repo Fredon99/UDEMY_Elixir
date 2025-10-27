@@ -28,6 +28,14 @@ defmodule TestBankWeb.ErrorJSON do
     %{status: :bad_request, message: "Invalid parameters"}
   end
 
+  def error(%{status: status}) do
+    %{status: status}
+  end
+
+  def error(%{message: message}) do
+    %{message: message}
+  end
+
   def error(%{changeset: changeset}) do
     %{errors: Ecto.Changeset.traverse_errors(changeset, &translate_errors/1)}
   end

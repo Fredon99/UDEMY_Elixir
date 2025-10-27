@@ -15,11 +15,18 @@ defmodule TestBankWeb.FallbackController do
     |> render(:error, status: :bad_request)
   end
 
-  def call(conn, {:error, changeset}) do
+  def call(conn, {:error, %Ecto.Changeset{} = changeset}) do
     conn
     |> put_status(:bad_request)
     |> put_view(json: TestBankWeb.ErrorJSON)
     |> render(:error, changeset: changeset)
   end
+
+  def call(conn, {:error, message}) do
+    conn
+    |> put_status(:bad_request)
+    |> put_view(json: TestBankWeb.ErrorJSON)
+    |> render(:error, message: message)
+    end
 
 end

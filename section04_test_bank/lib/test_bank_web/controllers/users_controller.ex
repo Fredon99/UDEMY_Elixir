@@ -3,6 +3,8 @@ defmodule TestBankWeb.UsersController do
   alias TestBank.Users
   alias Users.User
 
+  alias TestBankWeb.Token
+
   # Primeiro modo de ter um handle nas requests
   # def create(conn, params) do
   #   params
@@ -42,6 +44,15 @@ defmodule TestBankWeb.UsersController do
       conn
       |> put_status(:ok)
       |> render(:delete, user: user)
+    end
+  end
+
+  def login(conn, params) do
+    with {:ok, %User{} = user} <- Users.login(params) do
+      token = Token.sign(user)
+      conn
+      |> put_status(:ok)
+      |> render(:login, token: token)
     end
   end
 

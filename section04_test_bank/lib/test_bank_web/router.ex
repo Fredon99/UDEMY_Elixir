@@ -10,6 +10,10 @@ defmodule TestBankWeb.Router do
 
     get "/", WelcomeController, :index
     resources "/users", UsersController, only: [:create, :update, :delete, :show]
+    post "/users/login", UsersController, :login
+
+    post "/accounts", AccountsController, :create
+    post "/accounts/transaction", AccountsController, :transaction
   end
 
   # Enable LiveDashboard in development

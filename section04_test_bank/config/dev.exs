@@ -2,9 +2,9 @@ import Config
 
 # Configure your database
 config :test_bank, TestBank.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "192.168.56.1",
+  username: "test_bank",
+  password: "test_bank123",
+  hostname: "localhost",
   database: "test_bank_dev",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
